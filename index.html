@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .form{
+            border: 2px solid black;
+            position: relative;
+            margin-top: 15vw;
+            margin-left: 40vw;
+            width: 15%;
+            border-radius: 20px;
+            text-align: center;
+        }
+        #input{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+        #id , #email , #phone {
+            border-radius: 40px;
+            width: 76%;
+            margin: 5px 10px;
+            padding: 5px;
+            height: 30px;
+            color: black;
+            background-color: rgb(177, 182, 182);
+            opacity: 0.9;
+            
+        }
+        #btn{
+            border-radius: 40px;
+            width: 80%;
+            margin: 22px 10px;
+            padding: 10px;
+            height: 40px;
+            background-color: rgb(17, 16, 16);
+            color: white;
+            opacity: 0.9;
+        }
+        ::placeholder{
+            color: black;
+        }
+     
+    </style>
+</head>
+<body>
+    <div class="form">
+        <h2>Login</h2>
+        <div id="input">
+            <input type="text" id="id" name="text" placeholder="Username">
+            <input type="email" id="email" name="email"  placeholder="Email">
+            <input type="tel" id="phone" name="phone" placeholder="Tel">
+            <button type="submit" id="btn">Login</button>
+            
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded" , ()=>
+        {
+            btn.onclick = ()=>
+            {
+                let btn = document.getElementById('btn');
+                let phone = document.getElementById("phone");
+                let email = document.getElementById('email');
+                let id = document.getElementById('id');
+                let regphone = /^\d{11}$/;
+                let regid= /^\S+$/;
+                let regemail = /^\S+\@\S+\.\S+$/;
+                // example123@gmail.com
+                
+                
+                if (phone.value == "") 
+                {
+                    alert("You did not write your Phone Number");
+                    
+                    if (email.value== "")
+                    {
+                        alert("You did not write your email");  
+                         
+                    }
+                    else if (id.value == "")
+                    {
+                        alert("You did not write your Username");
+                    }
+                }
+                else if (phone.value.match(regphone) && email.value.match(regid) && email.value.match(regemail)) 
+                {
+                    alert("You can enter");
+                }
+                else
+                {
+                    alert("Every option must be filled correctly");
+                }
+            }
+            
+        })
+       
+    </script>
+</body>
+</html>
